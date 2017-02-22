@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  20 Icon Reduced
 //
-//  Created by Lee Blevins on 6/2/16.
-//  Copyright © 2016 Lee Blevins. All rights reserved.
+//  Created by Charlie Sunliu, Lee Blevins on 6/2/16.
 //
 
 import UIKit

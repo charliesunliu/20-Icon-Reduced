@@ -2,8 +2,7 @@
 //  SpellViewController.swift
 //  20 Icon Reduced
 //
-//  Created by Lee Blevins on 6/8/16.
-//  Copyright © 2016 DeAnza. All rights reserved.
+//  Created by Charlie Sunliu, Lee Blevins on 6/8/16.
 //
 
 import UIKit
