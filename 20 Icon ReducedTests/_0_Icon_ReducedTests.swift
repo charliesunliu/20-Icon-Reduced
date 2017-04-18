@@ -2,9 +2,6 @@
 //  _0_Icon_ReducedTests.swift
 //  20 Icon ReducedTests
 //
-//  Created by Lee Blevins on 5/9/16.
-//  Copyright © 2016 Lee Blevins. All rights reserved.
-//
 
 import XCTest
 @testable import _0_Icon_Reduced

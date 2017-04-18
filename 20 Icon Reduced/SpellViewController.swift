@@ -40,12 +40,12 @@ class SpellViewController: UIViewController {
     }
     */
    
-    @IBAction func goBack(sender: AnyObject) {
-        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("base")
-        self.showViewController(vc as! UIViewController, sender: vc)
+    @IBAction func goBack(_ sender: AnyObject) {
+        let vc : AnyObject! = self.storyboard!.instantiateViewController(withIdentifier: "base")
+        self.show(vc as! UIViewController, sender: vc)
     }
 
-   @IBAction func goToCategories(sender: AnyObject) {
+   @IBAction func goToCategories(_ sender: AnyObject) {
       print("The page number is: \(Key.pageNumber)")
       Key.pageName = "7a"
       Key.pageNumber = 6
@@ -55,9 +55,9 @@ class SpellViewController: UIViewController {
 //      self.showViewController(vc as! UIViewController, sender: vc)
     
     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    let resultViewCOntroller = storyBoard.instantiateViewControllerWithIdentifier("base") as! ViewController
+    let resultViewCOntroller = storyBoard.instantiateViewController(withIdentifier: "base") as! ViewController
     resultViewCOntroller.pageNum = 11
-    self.presentViewController(resultViewCOntroller, animated: true, completion: nil
+    self.present(resultViewCOntroller, animated: true, completion: nil
     )
     
     
@@ -65,16 +65,16 @@ class SpellViewController: UIViewController {
 
     //Below 2 functions for "end"&"first" button
     //Can set the appendFirst flag
-    @IBAction func appendFristTrue(sender: AnyObject) {
+    @IBAction func appendFristTrue(_ sender: AnyObject) {
         appendFirst = true
     }
     
-    @IBAction func appendEnd(sender: AnyObject) {
+    @IBAction func appendEnd(_ sender: AnyObject) {
         appendFirst = false
     }
    
     //Enter Function
-    @IBAction func enterLetter(sender: AnyObject) {
+    @IBAction func enterLetter(_ sender: AnyObject) {
         let enterLetter = String!(sender.accessibilityIdentifier)
         if(appendFirst == true){
             sentence = enterLetter + sentence
@@ -85,7 +85,7 @@ class SpellViewController: UIViewController {
         letterLabel.text = sentence
     }
     
-    @IBAction func speak(sender: AnyObject) {
+    @IBAction func speak(_ sender: AnyObject) {
         var str = String!(sender.accessibilityIdentifier)
         if(str == " "){
             str = "space"
@@ -93,10 +93,10 @@ class SpellViewController: UIViewController {
         let utterance = AVSpeechUtterance(string: str)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speakUtterance(utterance)
+        synthesizer.speak(utterance)
     }
 
-   @IBAction func backSpace(sender: AnyObject) {
+   @IBAction func backSpace(_ sender: AnyObject) {
       print("Backspace")
 
       letterLabel.text = String(sentence.characters.dropLast())
@@ -104,20 +104,20 @@ class SpellViewController: UIViewController {
 
    }
    
-   @IBAction func clearSentence(sender: AnyObject) {
+   @IBAction func clearSentence(_ sender: AnyObject) {
       print("Clear Sentence")
       letterLabel.text = ""
       sentence = ""
    }
 
 
-   @IBAction func playerButton(sender: AnyObject) {
+   @IBAction func playerButton(_ sender: AnyObject) {
       var str = String(sentence)
       print("player button: \(str)")
       let utterance = AVSpeechUtterance(string: str)
       utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
       let synthesizer = AVSpeechSynthesizer()
-      synthesizer.speakUtterance(utterance)
+      synthesizer.speak(utterance)
    }
 
 }

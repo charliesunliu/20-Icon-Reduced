@@ -112,7 +112,7 @@ class ViewController: UIViewController {
     // ------------------------------------------------------------------
     // btnClick
     // ------------------------------------------------------------------
-    @IBAction func btnClick(sender: AnyObject) {
+    @IBAction func btnClick(_ sender: AnyObject) {
 
         // ------------------------------------------------------------------
         // Play sounds if not 0
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
             let utterance = AVSpeechUtterance(string: str)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
             let synthesizer = AVSpeechSynthesizer()
-            synthesizer.speakUtterance(utterance)
+            synthesizer.speak(utterance)
         } else {
             print("The sound was zero")
         }
@@ -145,8 +145,8 @@ class ViewController: UIViewController {
                 // Need a function to go to the spell page
                 // ----------------------------------------------------------
                 print("A page 105 was clicked")
-                let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Spell")
-                self.showViewController(vc as! UIViewController, sender: vc)
+                let vc : AnyObject! = self.storyboard!.instantiateViewController(withIdentifier: "Spell")
+                self.show(vc as! UIViewController, sender: vc)
             } else {
                 print("Send to the page lookup: \(Key.pageName)")
                 // ----------------------------------------------------------
@@ -176,7 +176,7 @@ class ViewController: UIViewController {
     // ------------------------------------------------------------------
     // Page number lookup function
     // ------------------------------------------------------------------
-    func findPage(value : String) -> Int{
+    func findPage(_ value : String) -> Int{
         for i in 0...pages.count - 1  {
             if value == pages[i]{
                 return i
